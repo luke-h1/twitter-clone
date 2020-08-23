@@ -13,6 +13,8 @@ class UI {
     tweets.forEach((tweet) => { 
       output += `
       <div class="card mbg-3"> 
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+
         <div class="card-body"> 
           <h4 class="card-title">${tweet.title}</h4> 
           <p class="card-text">${tweet.body}</h4> 
@@ -27,6 +29,29 @@ class UI {
       `; 
     }); 
     this.tweet.innerHTML = output;
+  } 
+
+  showAlert(message, className){
+    this.clearAlert(); 
+    const div = document.createElement('div'); 
+    div.className = className;  
+    div.appendChild(document.createTextNode(message));  
+    const container = document.querySelector('.TweetsContainer'); 
+    const tweets = document.querySelector('#tweets') 
+    container.insertBefore(div, tweets); 
+    setTimeout(() => { 
+      this.clearAlert(); 
+    }, 2000);  
+  } 
+  clearAlert(){
+    const currentAlert = document.querySelector('.alert'); 
+    if(currentAlert){
+      currentAlert.remove(); 
+    }
+  } 
+  clearFields(){
+    this.titleInput.value = '';  
+    this.bodyInput.value = ''; 
   }
 }
 
