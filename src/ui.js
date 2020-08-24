@@ -12,7 +12,7 @@ class UI {
     let output = ''; 
     tweets.forEach((tweet) => { 
       output += `
-      <div class="card mbg-3"> 
+      <div class="card mb-3"> 
       <i class="fa fa-twitter" aria-hidden="true"></i>
 
         <div class="card-body"> 
